@@ -1,0 +1,111 @@
+{
+  "topics": [
+    {
+      "topicName": "privat-familie-vedtakFattet-v1-q0",
+      "numPartitions": 3,
+      "configEntries": {
+        "retention.ms": "-1"
+      },
+      "members": [
+        {
+          "member": "S139742",
+          "role": "MANAGER"
+        },
+        {
+          "member": "L151567",
+          "role": "MANAGER"
+        },
+        {
+          "member": "E151394",
+          "role": "MANAGER"
+        },
+        {
+          "member": "G150402",
+          "role": "MANAGER"
+        },
+        {
+          "member": "srvengangsstonad",
+          "role": "PRODUCER"
+        },
+        {
+          "member": "srvfpabakus",
+          "role": "CONSUMER"
+        },
+        {
+          "member": "srvfpinfo-historikk",
+          "role": "CONSUMER"
+        }
+      ]
+    },
+    {
+      "topicName": "privat-familie-vedtakFattet-v1-q1",
+      "numPartitions": 3,
+      "configEntries": {
+        "retention.ms": "-1"
+      },
+      "members": [
+        {
+          "member": "S139742",
+          "role": "MANAGER"
+        },
+        {
+          "member": "L151567",
+          "role": "MANAGER"
+        },
+        {
+          "member": "E151394",
+          "role": "MANAGER"
+        },
+        {
+          "member": "G150402",
+          "role": "MANAGER"
+        },
+        {
+          "member": "srvengangsstonad",
+          "role": "PRODUCER"
+        },
+        {
+          "member": "srvfpabakus",
+          "role": "CONSUMER"
+        },
+        {
+          "member": "srvfpinfo-historikk",
+          "role": "CONSUMER"
+        }
+      ]
+    },
+    {
+      "topicName": "privat-familie-vedtakFattet-v1-t4",
+      "numPartitions": 3,
+      "configEntries": {
+        "retention.ms": "-1"
+      },
+      "members": [
+        {
+          "member": "S139742",
+          "role": "MANAGER"
+        },
+        {
+          "member": "L151567",
+          "role": "MANAGER"
+        },
+        {
+          "member": "E151394",
+          "role": "MANAGER"
+        },
+        {
+          "member": "G150402",
+          "role": "MANAGER"
+        },
+        {
+          "member": "srvengangsstonad",
+          "role": "PRODUCER"
+        },
+        {
+          "member": "srvfpabakus",
+          "role": "CONSUMER"
+        }
+      ]
+    }
+  ]
+}
