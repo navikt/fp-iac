@@ -38,7 +38,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-aksjonspunkthendelse-p",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -78,7 +78,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-dokumenthendelse",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -110,7 +110,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-historikkinnslag",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -138,7 +138,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-kontroll-resultat",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -203,7 +203,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-brukerdialog-inntektsmelding",
-      "numPartitions": 3,
+      "numPartitions": 2,
       "configEntries": {
       },
       "members": [
@@ -235,7 +235,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-tilkjentytelse-v1-p",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
         "retention.ms": "-1"
       },
