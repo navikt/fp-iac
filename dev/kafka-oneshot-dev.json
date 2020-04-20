@@ -109,7 +109,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-aksjonspunkthendelse-q0",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -145,7 +145,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-aksjonspunkthendelse-q1",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -181,7 +181,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-aksjonspunkthendelse-t4",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
         "retention.ms": "-1"
       },
@@ -218,7 +218,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-dokumenthendelse-q0",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -246,7 +246,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-dokumenthendelse-q1",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -278,7 +278,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-dokumenthendelse-t4",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -306,7 +306,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-historikkinnslag-q0",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -334,7 +334,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-historikkinnslag-q1",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -366,7 +366,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-historikkinnslag-t4",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -394,7 +394,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-kontroll-resultat-q0",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -426,7 +426,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-kontroll-resultat-q1",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -458,7 +458,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-kontroll-resultat-t4",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -589,7 +589,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-brukerdialog-inntektsmelding-q0",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -621,7 +621,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-brukerdialog-inntektsmelding-q1",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -653,7 +653,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-brukerdialog-inntektsmelding-t4",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
       },
       "members": [
@@ -685,7 +685,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-tilkjentytelse-v1-q0",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
         "retention.ms": "-1"
       },
@@ -722,7 +722,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-tilkjentytelse-v1-q1",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
         "retention.ms": "-1"
       },
@@ -763,7 +763,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-tilkjentytelse-v1-t4",
-      "numPartitions": 3,
+      "numPartitions": 1,
       "configEntries": {
         "retention.ms": "-1"
       },
