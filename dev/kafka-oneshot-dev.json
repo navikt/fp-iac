@@ -38,6 +38,10 @@
         {
           "member": "srvfpinfo-historikk",
           "role": "CONSUMER"
+        },
+        {
+          "member": "srvk9statistikk",
+          "role": "CONSUMER"
         }
       ]
     },
