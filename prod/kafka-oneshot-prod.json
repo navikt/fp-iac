@@ -33,6 +33,10 @@
         {
           "member": "srvfpabakus",
           "role": "CONSUMER"
+        },
+        {
+          "member": "srvk9statistikk",
+          "role": "CONSUMER"
         }
       ]
     },
