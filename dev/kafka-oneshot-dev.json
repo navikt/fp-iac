@@ -83,6 +83,10 @@
         {
           "member": "srvfpinfo-historikk",
           "role": "CONSUMER"
+        },
+        {
+          "member": "srvk9statistikk",
+          "role": "CONSUMER"
         }
       ]
     },
@@ -119,6 +123,10 @@
         },
         {
           "member": "srvfpabakus",
+          "role": "CONSUMER"
+        },
+        {
+          "member": "srvk9statistikk",
           "role": "CONSUMER"
         }
       ]
