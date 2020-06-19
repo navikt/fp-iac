@@ -37,6 +37,14 @@
         {
           "member": "srvk9statistikk",
           "role": "CONSUMER"
+        },
+        {
+          "member": "srvk9-tilbake",
+          "role": "CONSUMER"
+        },
+        {
+          "member": "srvfptilbake",
+          "role": "CONSUMER"
         }
       ]
     },
