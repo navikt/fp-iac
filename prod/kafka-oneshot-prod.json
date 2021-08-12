@@ -90,7 +90,7 @@
     },
     {
       "topicName": "privat-foreldrepenger-dokumenthendelse",
-      "numPartitions": 1,
+      "numPartitions": 3,
       "configEntries": {
       },
       "members": [

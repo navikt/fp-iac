@@ -1,55 +1,6 @@
 {
   "topics": [
     {
-      "topicName": "privat-familie-vedtakFattet-v1-q0",
-      "numPartitions": 3,
-      "configEntries": {
-        "retention.ms": "-1"
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "G150402",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvk9sak",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfpabakus",
-          "role": "CONSUMER"
-        },
-        {
-          "member": "srvfpinfo-historikk",
-          "role": "CONSUMER"
-        },
-        {
-          "member": "srvk9statistikk",
-          "role": "CONSUMER"
-        },
-        {
-          "member": "srvfptilbake",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
       "topicName": "privat-familie-vedtakFattet-v1-q1",
       "numPartitions": 3,
       "configEntries": {
@@ -103,87 +54,6 @@
       ]
     },
     {
-      "topicName": "privat-familie-vedtakFattet-v1-t4",
-      "numPartitions": 3,
-      "configEntries": {
-        "retention.ms": "-1"
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "G150402",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvk9sak",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfpabakus",
-          "role": "CONSUMER"
-        },
-        {
-          "member": "srvk9statistikk",
-          "role": "CONSUMER"
-        },
-        {
-          "member": "srvfptilbake",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-aksjonspunkthendelse-q0",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "P143890",
-          "role": "MANAGER"
-        },
-        {
-          "member": "P135488",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfplos",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
       "topicName": "privat-foreldrepenger-aksjonspunkthendelse-q1",
       "numPartitions": 1,
       "configEntries": {
@@ -220,73 +90,8 @@
       ]
     },
     {
-      "topicName": "privat-foreldrepenger-aksjonspunkthendelse-t4",
-      "numPartitions": 1,
-      "configEntries": {
-        "retention.ms": "-1"
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "P143890",
-          "role": "MANAGER"
-        },
-        {
-          "member": "P135488",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfplos",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-dokumenthendelse-q0",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfpformidling",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
       "topicName": "privat-foreldrepenger-dokumenthendelse-q1",
-      "numPartitions": 1,
+      "numPartitions": 3,
       "configEntries": {
       },
       "members": [
@@ -312,62 +117,6 @@
         },
         {
           "member": "srvfpinfo-historikk",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-dokumenthendelse-t4",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfpformidling",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-historikkinnslag-q0",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvfpformidling",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvengangsstonad",
           "role": "CONSUMER"
         }
       ]
@@ -405,66 +154,6 @@
       ]
     },
     {
-      "topicName": "privat-foreldrepenger-historikkinnslag-t4",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvfpformidling",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-kontroll-resultat-q0",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151345",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvfprisk",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
       "topicName": "privat-foreldrepenger-kontroll-resultat-q1",
       "numPartitions": 1,
       "configEntries": {
@@ -492,71 +181,6 @@
         },
         {
           "member": "srvengangsstonad",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-kontroll-resultat-t4",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151345",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvfprisk",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-fprisk-utfor-q0",
-      "numPartitions": 3,
-      "configEntries": {
-        "retention.ms": "-1"
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151345",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfprisk",
           "role": "CONSUMER"
         }
       ]
@@ -595,71 +219,6 @@
       ]
     },
     {
-      "topicName": "privat-foreldrepenger-fprisk-utfor-t4",
-      "numPartitions": 3,
-      "configEntries": {
-        "retention.ms": "-1"
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151345",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfprisk",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-brukerdialog-inntektsmelding-q0",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvfpinfo-historikk",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfpinfo-historikk",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
       "topicName": "privat-foreldrepenger-brukerdialog-inntektsmelding-q1",
       "numPartitions": 1,
       "configEntries": {
@@ -687,75 +246,6 @@
         },
         {
           "member": "srvfpinfo-historikk",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-brukerdialog-inntektsmelding-t4",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvfpinfo-historikk",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfpinfo-historikk",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-tilkjentytelse-v1-q0",
-      "numPartitions": 1,
-      "configEntries": {
-        "retention.ms": "-1"
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E149421",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfpoppdrag",
-          "role": "CONSUMER"
-        },
-        {
-          "member": "srvfptilbake",
           "role": "CONSUMER"
         }
       ]
@@ -797,43 +287,6 @@
         },
         {
           "member": "srvkafkaui",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
-      "topicName": "privat-foreldrepenger-tilkjentytelse-v1-t4",
-      "numPartitions": 1,
-      "configEntries": {
-        "retention.ms": "-1"
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E149421",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfpoppdrag",
-          "role": "CONSUMER"
-        },
-        {
-          "member": "srvfptilbake",
           "role": "CONSUMER"
         }
       ]
