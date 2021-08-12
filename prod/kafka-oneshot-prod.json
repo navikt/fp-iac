@@ -107,6 +107,10 @@
           "role": "MANAGER"
         },
         {
+          "member": "srvengangsstonad",
+          "role": "PRODUCER"
+        },
+        {
           "member": "srvfpformidling",
           "role": "CONSUMER"
         },
