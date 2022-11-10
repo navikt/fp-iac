@@ -33,7 +33,6 @@ spec:
   azure: # Required
     application:
       enabled: true
-      tenant: trygdeetaten.no
       claims:
         groups:
           - id: f1b82579-c5b5-4617-9673-8ace5ff67f63 # driftsrolle
