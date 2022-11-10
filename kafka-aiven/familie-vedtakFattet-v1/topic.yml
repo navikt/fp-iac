@@ -1,7 +1,7 @@
 apiVersion: kafka.nais.io/v1
 kind: Topic
 metadata:
-  name: familie-vedtakFattet-v1
+  name: familie-vedtakfattet-v1
   namespace: teamforeldrepenger
   labels:
     team: teamforeldrepenger
