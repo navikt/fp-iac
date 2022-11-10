@@ -57,6 +57,6 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: kafka-aiven/${{ matrix.topic }}/topic.yaml
-          VARS: kafka-aiven/${{ matrix.topic }}/prod-vars.yaml
+          RESOURCE: kafka-aiven/${{ matrix.topic }}/topic.yml
+          VARS: kafka-aiven/${{ matrix.topic }}/prod-vars.yml
           PRINT_PAYLOAD: true
