@@ -24,6 +24,3 @@ spec:
     - team: teamforeldrepenger
       application: fptilbake
       access: read
-    - team: teamforeldrepenger
-      application: fp-kafka-manager
-      access: read

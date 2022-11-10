@@ -52,3 +52,11 @@ jobs:
           RESOURCE: kafka-aiven/${{ matrix.topic }}/topic.yml
           VARS: kafka-aiven/${{ matrix.topic }}/dev-vars.yml
           PRINT_PAYLOAD: true
+      - name: deploy to prod
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: kafka-aiven/${{ matrix.topic }}/topic.yaml
+          VARS: kafka-aiven/${{ matrix.topic }}/prod-vars.yaml
+          PRINT_PAYLOAD: true
