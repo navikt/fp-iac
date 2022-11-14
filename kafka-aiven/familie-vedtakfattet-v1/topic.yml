@@ -24,3 +24,12 @@ spec:
     - team: teamforeldrepenger
       application: fptilbake
       access: read
+    - team: k9saksbehandling
+      application: k9-sak
+      access: readwrite
+    - team: k9saksbehandling
+      application: k9-tilbake
+      access: read
+    - team: k9saksbehandling
+      application: k9-statistikk
+      access: read
