@@ -1,0 +1,17 @@
+apiVersion: kafka.nais.io/v1
+kind: Topic
+metadata:
+  name: tilbakekreving-dvh-vedtak-v1
+  namespace: teamforeldrepenger
+  labels:
+    team: teamforeldrepenger
+spec:
+  pool: {{pool}}
+  config:
+  {{#each config as |value key|}}
+     {{key}}: {{value}}
+  {{/each}}
+  acl:
+    - team: teamforeldrepenger
+      application: fptilbake
+      access: write
