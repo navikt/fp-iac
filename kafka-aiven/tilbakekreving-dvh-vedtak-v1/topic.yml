@@ -15,3 +15,9 @@ spec:
     - team: teamforeldrepenger
       application: fptilbake
       access: write
+  {{#each acl}}
+    - team: {{team}}
+      application: {{app}}
+      access: {{access}}
+  {{/each}}
+

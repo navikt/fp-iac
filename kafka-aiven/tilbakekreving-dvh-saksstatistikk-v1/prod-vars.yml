@@ -6,3 +6,7 @@ config:
   replication: 3
   retentionBytes: -1
   retentionHours: 504 # 3 uker
+acl:
+  - team: ptsak
+    app: pt-sak-fptilbake
+    access: read
