@@ -44,7 +44,7 @@ spec:
         {
           "topics": [
             {
-              "name": "teamforeldrepenger.familie-vedtakFattet-v1",
+              "name": "teamforeldrepenger.familie-vedtakfattet-v1",
               "location": "AIVEN",
               "keyDeserializerType": "STRING",
               "valueDeserializerType": "STRING"
