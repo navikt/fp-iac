@@ -1,4 +1,4 @@
-name: Deploy kafka-manager
+name: Deploy kafka-manager prod
 
 on:
   workflow_dispatch:
