@@ -19,9 +19,6 @@ spec:
       application: fpabakus
       access: read
     - team: teamforeldrepenger
-      application: fpabonnent
-      access: read
-    - team: teamforeldrepenger
       application: fptilbake
       access: read
     - team: teamforeldrepenger
