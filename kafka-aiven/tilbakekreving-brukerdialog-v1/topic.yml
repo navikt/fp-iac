@@ -15,3 +15,6 @@ spec:
     - team: teamforeldrepenger
       application: fptilbake
       access: write
+    - team: teamforeldrepenger
+      application: fpinfo-historikk
+      access: read
