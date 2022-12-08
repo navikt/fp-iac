@@ -49,11 +49,11 @@ spec:
               "keyDeserializerType": "STRING",
               "valueDeserializerType": "STRING"
             },
-                        {
+            {
               "name": "teamforeldrepenger.tilbakekreving-brukerdialog-v1",
               "location": "AIVEN",
               "keyDeserializerType": "STRING",
               "valueDeserializerType": "STRING"
-            },
+            }
           ]
         }
