@@ -1,0 +1,12 @@
+pool: nav-dev
+config:
+  cleanupPolicy: delete # delete or compact
+  minimumInSyncReplicas: 1
+  partitions: 2
+  replication: 2
+  retentionBytes: -1
+  retentionHours: 168 # 1 uke
+acl:
+  - team: teamforeldrepenger
+    app: fp-kafka-manager
+    access: readwrite
