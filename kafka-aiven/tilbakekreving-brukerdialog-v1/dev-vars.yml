@@ -8,5 +8,5 @@ config:
   retentionHours: 168 # 1 uke
 acl:
   - team: teamforeldrepenger
-    application: fp-kafka-manager
+    app: fp-kafka-manager
     access: readwrite
