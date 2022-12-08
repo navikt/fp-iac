@@ -18,3 +18,8 @@ spec:
     - team: teamforeldrepenger
       application: fpinfo-historikk
       access: read
+  {{#each acl}}
+    - team: {{team}}
+      application: {{app}}
+      access: {{access}}
+  {{/each}}
