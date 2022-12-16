@@ -1,0 +1,26 @@
+apiVersion: kafka.nais.io/v1
+kind: Topic
+metadata:
+  name: behandling-hendelse-v1
+  namespace: teamforeldrepenger
+  labels:
+    team: teamforeldrepenger
+spec:
+  pool: {{pool}}
+  config:
+  {{#each config as |value key|}}
+     {{key}}: {{value}}
+  {{/each}}
+  acl:
+    - team: teamforeldrepenger
+      application: fpsak
+      access: write
+    - team: teamforeldrepenger
+      application: fptilbake
+      access: write
+    - team: teamforeldrepenger
+      application: fplos
+      access: read
+    - team: teamforeldrepenger
+      application: fp-kafka-manager
+      access: read
