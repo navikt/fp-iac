@@ -3,6 +3,8 @@ kind: Topic
 metadata:
   name: familie-vedtakfattet
   namespace: teamforeldrepenger
+  annotations:
+    kafka.nais.io/removeDataWhenResourceIsDeleted: "true"
   labels:
     team: teamforeldrepenger
 spec:
