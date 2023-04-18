@@ -27,4 +27,3 @@ spec:
     - team: teamforeldrepenger
       application: fp-kafka-manager
       access: read
-
