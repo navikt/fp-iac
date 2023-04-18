@@ -22,5 +22,8 @@ spec:
       application: fplos
       access: read
     - team: teamforeldrepenger
+      application: fpoversikt
+      access: read
+    - team: teamforeldrepenger
       application: fp-kafka-manager
       access: read
