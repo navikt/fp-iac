@@ -44,7 +44,7 @@ spec:
         {
           "topics": [
             {
-              "name": "teamforeldrepenger.familie-vedtakfattet-v1",
+              "name": "teamforeldrepenger.fpoversikt-migrering-v1",
               "location": "AIVEN",
               "keyDeserializerType": "STRING",
               "valueDeserializerType": "STRING"
