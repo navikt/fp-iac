@@ -20,4 +20,4 @@ spec:
       access: read
     - team: teamforeldrepenger
       application: fp-kafka-manager
-      access: write
+      access: readwrite
