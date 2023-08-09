@@ -1,0 +1,37 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: foreldrepenger-alerts
+  namespace: teamforeldrepenger
+  labels:
+    team: teamforeldrepenger
+spec:
+  groups:
+    - name: foreldrepenger-alerts
+      rules:
+        - alert: Applikasjonen er nede
+          expr: kube_deployment_status_replicas_available{namespace="teamforeldrepenger"} == 0
+          for: 15s
+          annotations:
+            consequence: '*\{{ $labels.deployment }}* er nede og ikke tilgjengelig!'
+          labels:
+            namespace: teamforeldrepenger
+            severity: critical
+
+        - alert: Feilede prosesstask i applikasjon
+          expr: sum (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app) > 0
+          for: 1m
+          annotations:
+            consequence: '*\{{ $labels.app }}* har feilede prosesstasks'
+          labels:
+            namespace: teamforeldrepenger
+            severity: warning
+
+        - alert: Flere errors/warnings observert i loggen den siste tiden
+          expr: sum (logback_events_total{namespace="teamforeldrepenger", level=~"error|warn"}) by (app) > 1
+          annotations:
+            consequence: 'Flere error/warnings observert i loggen til applikasjonen: *\{{ $labels.app }}* h'
+          labels:
+            namespace: teamforeldrepenger
+            severity: critical
+
