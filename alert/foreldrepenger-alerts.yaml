@@ -27,8 +27,8 @@ spec:
             namespace: teamforeldrepenger
             severity: warning
 
-        - alert: Flere errors/warnings observert i loggen den siste tiden
-          expr: sum (logback_events_total{namespace="teamforeldrepenger", level=~"error|warn"}) by (app) > 2
+        - alert: Flere errors/warnings observert i loggen de siste 5 minuttene
+          expr: sum (floor(increase(logback_events_total{namespace="teamforeldrepenger", level=~"error|warn"}[5m]))) by (app) > 2
           annotations:
             consequence: 'Flere error/warnings observert i loggen til applikasjonen: *\{{ $labels.app }}* h'
           labels:
