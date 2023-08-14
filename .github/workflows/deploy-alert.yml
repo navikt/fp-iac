@@ -1,0 +1,28 @@
+name: Deploy kafka topics
+
+on:
+  push:
+    branches:
+     - main
+    paths:
+      - alert/**
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy to prod-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: alert/foreldrepenger-alerts.yaml
+          PRINT_PAYLOAD: true
+      - name: Deploy to prod-fss
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-fss
+          RESOURCE: alert/foreldrepenger-alerts.yaml
+          PRINT_PAYLOAD: true
