@@ -13,16 +13,18 @@ spec:
           expr: kube_deployment_status_replicas_available{namespace="teamforeldrepenger"} == 0
           for: 15s
           annotations:
-            consequence: '*\{{ $labels.deployment }}* er nede og ikke tilgjengelig!'
+            summary: '*{{ $labels.deployment }}* er nede og ikke tilgjengelig!'
           labels:
             namespace: teamforeldrepenger
             severity: critical
 
         - alert: Feilede prosesstask i applikasjon
-          expr: sum (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app) > 0
+          expr: |
+            sum (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app) /
+            count (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"})  by (app) > 0
           for: 1m
           annotations:
-            consequence: '*\{{ $labels.app }}* har feilede prosesstasks'
+            summary: 'Applikasjonen *{{ $labels.app }}* har {{ $value }} feilede prosesstasks!'
           labels:
             namespace: teamforeldrepenger
             severity: warning
@@ -30,7 +32,7 @@ spec:
         - alert: Flere errors/warnings observert i loggen de siste 5 minuttene
           expr: sum (floor(increase(logback_events_total{namespace="teamforeldrepenger", level=~"error|warn"}[5m]))) by (app) > 2
           annotations:
-            consequence: 'Flere error/warnings observert i loggen til applikasjonen: *\{{ $labels.app }}* h'
+            summary: '{{ $value }} warnings/errors har blitt observert i loggen til *{{ $labels.app }}*'
           labels:
             namespace: teamforeldrepenger
             severity: critical
