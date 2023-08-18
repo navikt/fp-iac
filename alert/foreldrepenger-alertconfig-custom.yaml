@@ -13,7 +13,7 @@ spec:
         - apiURL:
             key: apiUrl
             name: slack-webhook
-          channel: 'foreldrepenger-slack'
+          channel: 'fp-daglig-overvåking-alerts'
           iconEmoji: ':scream:'
           username: 'Alert prosesstask'
           httpConfig:
