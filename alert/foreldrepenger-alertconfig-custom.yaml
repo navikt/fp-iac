@@ -48,14 +48,17 @@ spec:
   route:
     groupBy:
       - alertname
-    matchers:
-      - name: "special_type_to_use_in_alertmanager_config"
-        matchType: "="
-        value: "foreldrepenger-prosesstask-alert"
     receiver: foreldrepenger-slack-receiver
     repeatInterval: 10s
-    active_time_intervals:
-      - bareMorgen
+    routes:
+      - receiver: foreldrepenger-slack-receiver
+        active_time_intervals:
+          - bareMorgen
+        matchers:
+          - name: "special_type_to_use_in_alertmanager_config"
+            matchType: "="
+            value: "foreldrepenger-prosesstask-alert"
+
   time_intervals:
   - name: bareMorgen
     time_intervals:
