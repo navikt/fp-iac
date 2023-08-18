@@ -52,11 +52,10 @@ spec:
       - name: "special_type_to_use_in_alertmanager_config"
         matchType: "="
         value: "foreldrepenger-prosesstask-alert"
-    groupInterval: 10s
-    groupWait: 5s
     receiver: foreldrepenger-slack-receiver
-    repeatInterval: 1m
-    times:
-      - start_time: 10:55
-        end_time: 11:00
+    repeatInterval: 10s
+    active_time_intervals:
+      - times:
+        - start_time: 11:05
+          end_time: 11:10
         location: Europe/Oslo
