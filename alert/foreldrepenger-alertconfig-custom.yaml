@@ -52,6 +52,8 @@ spec:
       - name: "special_type_to_use_in_alertmanager_config"
         matchType: "="
         value: "foreldrepenger-prosesstask-alert"
+    groupInterval: 10s
+    groupWait: 5s
     repeatInterval: 10s
 
 #  time_intervals:
