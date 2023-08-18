@@ -54,8 +54,8 @@ spec:
     - name: bareMorgen
       time_intervals:
         - times:
-            - start_time: 10:00
-              end_time: 15:35
+            - start_time: 15:43
+              end_time: 15:46
           location: Europe/Oslo
   route:
     groupBy:
@@ -67,6 +67,6 @@ spec:
     groupInterval: 10s
     groupWait: 5s
     receiver: foreldrepenger-slack-receiver
-    repeatInterval: 2m
+    repeatInterval: 1m
     active_time_intervals:
       - bareMorgen
