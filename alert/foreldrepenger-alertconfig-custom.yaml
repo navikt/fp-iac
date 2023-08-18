@@ -21,7 +21,8 @@ spec:
             proxyURL: http://webproxy.nais:8088
           title: |-
             [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
-          text: {{ .Annotations.summary }}
+          text: |-
+            {{ .Annotations.summary }}
           color: |-
             {{ if eq .Status "firing" -}}
               {{ if eq .CommonLabels.severity "warning" -}}
