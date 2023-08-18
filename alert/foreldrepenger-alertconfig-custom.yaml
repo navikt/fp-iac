@@ -22,11 +22,7 @@ spec:
             [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
           text: >-
             {{ range .Alerts -}}
-            *Alert:* {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
-            *Description:* {{ .Annotations.description }}
-            *Details:*
-            {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
-            {{ end }}
+            {{ .Annotations.summary }}
             {{ end }}
           color: |-
             {{ if eq .Status "firing" -}}
@@ -50,13 +46,6 @@ spec:
             {{ else -}}
             good
             {{- end }}
-  time_intervals:
-    - name: bareMorgen
-      time_intervals:
-        - times:
-            - start_time: 15:43
-              end_time: 15:46
-          location: Europe/Oslo
   route:
     groupBy:
       - alertname
@@ -64,9 +53,5 @@ spec:
       - name: "special_type_to_use_in_alertmanager_config"
         matchType: "="
         value: "foreldrepenger-prosesstask-alert"
-    groupInterval: 10s
-    groupWait: 5s
     receiver: foreldrepenger-slack-receiver
-    repeatInterval: 1m
-    active_time_intervals:
-      - bareMorgen
+    repeatInterval: 1d
