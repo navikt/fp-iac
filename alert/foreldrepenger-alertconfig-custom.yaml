@@ -55,7 +55,10 @@ spec:
     receiver: foreldrepenger-slack-receiver
     repeatInterval: 10s
     active_time_intervals:
-      - times:
-        - start_time: 11:05
-          end_time: 11:10
-        location: Europe/Oslo
+      - bareMorgen
+  name: bareMorgen
+  time_intervals:
+    - times:
+        - start_time: 11:11
+          end_time: 11:15
+      location: Europe/Oslo
