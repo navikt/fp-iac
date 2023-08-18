@@ -59,7 +59,7 @@ spec:
   time_intervals:
     - name: bareMorgen
       time_intervals:
-      - times:
-          - start_time: 11:17
-            end_time: 11:20
-        location: Europe/Oslo
+        - times:
+            - start_time: 12:22
+              end_time: 12:25
+          location: Europe/Oslo
