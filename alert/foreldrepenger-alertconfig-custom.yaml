@@ -54,7 +54,7 @@ spec:
         value: "foreldrepenger-prosesstask-alert"
     groupInterval: 10s
     groupWait: 5s
-    repeatInterval: 10s
+    repeatInterval: 1m
 
 #  time_intervals:
 #  - name: bareMorgen
