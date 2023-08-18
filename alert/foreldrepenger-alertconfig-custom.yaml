@@ -16,7 +16,6 @@ spec:
           channel: 'fp-daglig-overvåking-alerts'
           iconEmoji: ':scream:'
           username: 'Feilede prosesstask alert {{ cluster }}'
-          sendResolved: true
           httpConfig:
             proxyURL: http://webproxy.nais:8088
           title: |-
