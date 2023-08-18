@@ -15,12 +15,19 @@ spec:
             name: slack-webhook
           channel: 'fp-daglig-overvåking-alerts'
           iconEmoji: ':scream:'
-          username: 'Feilede prosesstask alert {{ cluster }}'
+          username: 'Alert prosesstask'
           httpConfig:
             proxyURL: http://webproxy.nais:8088
           title: |-
             [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
-          text: 'TODO'
+          text: >-
+            {{ range .Alerts -}}
+            *Alert:* {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+            *Description:* {{ .Annotations.description }}
+            *Details:*
+            {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+            {{ end }}
+            {{ end }}
           color: |-
             {{ if eq .Status "firing" -}}
               {{ if eq .CommonLabels.severity "warning" -}}
@@ -44,20 +51,13 @@ spec:
             good
             {{- end }}
   route:
-    groupBy: [alertname]
-    receiver: foreldrepenger-slack-receiver
+    groupBy:
+      - alertname
     matchers:
       - name: "special_type_to_use_in_alertmanager_config"
         matchType: "="
         value: "foreldrepenger-prosesstask-alert"
     groupInterval: 10s
     groupWait: 5s
-    repeatInterval: 1m
-
-#  time_intervals:
-#  - name: bareMorgen
-#    time_intervals:
-#    - times:
-#      - start_time: 10:00
-#        end_time: 15:00
-#      location: Europe/Oslo
+    receiver: foreldrepenger-slack-receiver
+    repeatInterval: 2m
