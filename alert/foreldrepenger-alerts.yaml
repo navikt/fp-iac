@@ -28,6 +28,8 @@ spec:
           labels:
             namespace: teamforeldrepenger
             severity: warning
+            special_type_to_use_in_alertmanager_config: foreldrepenger-prosesstask-alert
+            alert_type: custom
 
         - alert: Nye feilede prosesstask registert
           expr: |
@@ -48,4 +50,3 @@ spec:
           labels:
             namespace: teamforeldrepenger
             severity: critical
-
