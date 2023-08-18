@@ -56,9 +56,10 @@ spec:
     repeatInterval: 10s
     active_time_intervals:
       - bareMorgen
-  name: bareMorgen
   time_intervals:
-    - times:
-        - start_time: 11:11
-          end_time: 11:15
-      location: Europe/Oslo
+    - name: bareMorgen
+      time_intervals:
+      - times:
+          - start_time: 11:17
+            end_time: 11:20
+        location: Europe/Oslo
