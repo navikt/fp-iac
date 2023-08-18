@@ -15,19 +15,13 @@ spec:
             name: slack-webhook
           channel: 'fp-daglig-overvåking-alerts'
           iconEmoji: ':scream:'
-          username: 'Alert prosesstask'
+          username: 'Feilede prosesstask alert {{ cluster }}'
+          sendResolved: true
           httpConfig:
             proxyURL: http://webproxy.nais:8088
           title: |-
             [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
-          text: >-
-            {{ range .Alerts -}}
-            *Alert:* {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
-            *Description:* {{ .Annotations.description }}
-            *Details:*
-            {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
-            {{ end }}
-            {{ end }}
+          text: {{ .Annotations.summary }}
           color: |-
             {{ if eq .Status "firing" -}}
               {{ if eq .CommonLabels.severity "warning" -}}
@@ -61,3 +55,6 @@ spec:
     groupWait: 5s
     receiver: foreldrepenger-slack-receiver
     repeatInterval: 2m
+    times:
+      - start_time: 10:50
+        end_time: 10:55
