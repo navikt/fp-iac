@@ -22,7 +22,9 @@ spec:
           title: |-
             [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
           text: |-
+            {{ range .Alerts -}}
             {{ .Annotations.summary }}
+            {{ end }}
           color: |-
             {{ if eq .Status "firing" -}}
               {{ if eq .CommonLabels.severity "warning" -}}
