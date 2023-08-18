@@ -54,10 +54,10 @@ spec:
         value: "foreldrepenger-prosesstask-alert"
     repeatInterval: 10s
 
-  time_intervals:
-  - name: bareMorgen
-    time_intervals:
-    - times:
-      - start_time: 10:00
-        end_time: 15:00
-      location: Europe/Oslo
+#  time_intervals:
+#  - name: bareMorgen
+#    time_intervals:
+#    - times:
+#      - start_time: 10:00
+#        end_time: 15:00
+#      location: Europe/Oslo
