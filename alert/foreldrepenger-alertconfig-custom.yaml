@@ -55,7 +55,8 @@ spec:
     groupInterval: 10s
     groupWait: 5s
     receiver: foreldrepenger-slack-receiver
-    repeatInterval: 2m
+    repeatInterval: 1m
     times:
-      - start_time: 10:50
-        end_time: 10:55
+      - start_time: 10:55
+        end_time: 11:00
+        location: Europe/Oslo
