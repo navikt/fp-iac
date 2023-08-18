@@ -4,6 +4,7 @@ metadata:
   name: foreldrepenger-slack
   namespace: teamforeldrepenger
   labels:
+    team: teamforeldrepenger
     alertmanagerConfig: foreldrepenger-slack
 spec:
   receivers:
