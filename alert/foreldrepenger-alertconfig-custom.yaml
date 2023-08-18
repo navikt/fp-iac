@@ -50,6 +50,13 @@ spec:
             {{ else -}}
             good
             {{- end }}
+  time_intervals:
+    - name: bareMorgen
+      time_intervals:
+        - times:
+            - start_time: 10:00
+              end_time: 18:00
+          location: Europe/Oslo
   route:
     groupBy:
       - alertname
@@ -61,3 +68,5 @@ spec:
     groupWait: 5s
     receiver: foreldrepenger-slack-receiver
     repeatInterval: 2m
+    active_time_intervals:
+      - bareMorgen
