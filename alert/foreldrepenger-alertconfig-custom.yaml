@@ -20,7 +20,7 @@ spec:
             proxyURL: http://webproxy.nais:8088
           title: |-
             [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
-          text: >-
+          text: |-
             {{ range .Alerts -}}
             {{ .Annotations.summary }}
             {{ end }}
@@ -54,4 +54,6 @@ spec:
         matchType: "="
         value: "foreldrepenger-prosesstask-alert"
     receiver: foreldrepenger-slack-receiver
-    repeatInterval: 1d
+    groupInterval: 10s
+    groupWait: 5s
+    repeatInterval: 24h
