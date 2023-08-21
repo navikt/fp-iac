@@ -11,7 +11,7 @@ spec:
       rules:
         - alert: Applikasjonen er nede
           expr: kube_deployment_status_replicas_available{namespace="teamforeldrepenger"} == 0
-          for: 15s
+          for: 30s
           annotations:
             summary: '*{{ $labels.deployment }}* er nede og ikke tilgjengelig!'
           labels:
@@ -22,19 +22,22 @@ spec:
           expr: |
             sum (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app) /
             count (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"})  by (app) > 0
-          for: 1m
+          for: 5m
           annotations:
             summary: 'Applikasjonen *{{ $labels.app }}* har {{ $value }} feilede prosesstasks!'
           labels:
             namespace: teamforeldrepenger
             severity: warning
             special_type_to_use_in_alertmanager_config: foreldrepenger-prosesstask-alert
+            alert_type: custom
 
         - alert: Nye feilede prosesstask registert
           expr: |
+            sum (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"}) by (app) > 0 
+            and
             round((sum (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"}) by (app) -
             sum (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"} offset 10m) by (app)) /
-            count (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"})  by (app)) > 0
+            count (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"})  by (app)) > 0.5
           for: 5m
           annotations:
             summary: 'Applikasjonen *{{ $labels.app }}* har {{ $value }} nye feilede prosesstasks de siste 5 minuttene!'
@@ -48,4 +51,4 @@ spec:
             summary: '{{ $value }} warnings/errors har blitt observert i loggen til *{{ $labels.app }}*'
           labels:
             namespace: teamforeldrepenger
-            severity: critical
+            severity: warning
