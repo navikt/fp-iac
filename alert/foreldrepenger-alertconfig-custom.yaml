@@ -54,4 +54,4 @@ spec:
         matchType: "="
         value: "foreldrepenger-prosesstask-alert"
     receiver: foreldrepenger-slack-receiver
-    repeatInterval: 24h
+    repeatInterval: 1h
