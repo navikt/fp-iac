@@ -26,10 +26,3 @@ jobs:
           CLUSTER: prod-fss
           RESOURCE: alert/foreldrepenger-alerts.yaml
           PRINT_PAYLOAD: true
-      - name: Deploy to prod-fss
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-fss
-          RESOURCE: alert/foreldrepenger-alertconfig-custom.yaml
-          PRINT_PAYLOAD: true
