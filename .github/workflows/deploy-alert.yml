@@ -1,10 +1,11 @@
-name: Deploy kafka topics
+name: Deploy alerts topics
 
 on:
   push:
     branches:
      - main
     paths:
+      - .github/workflows/deploy-alert.yml
       - alert/**
 jobs:
   deploy:
