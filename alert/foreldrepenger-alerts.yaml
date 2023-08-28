@@ -34,15 +34,8 @@ spec:
           labels:
             namespace: teamforeldrepenger
             severity: warning
-
-        - alert: Applikasjonen er nede
-          expr: kube_deployment_status_replicas_available{namespace="teamforeldrepenger"} == 0
-          for: 30s
-          annotations:
-            summary: '*{{ $labels.deployment }}* er nede og ikke tilgjengelig!'
-          labels:
-            namespace: teamforeldrepenger
-            severity: critical
+            special_type_to_use_in_alertmanager_config: foreldrepenger-none-resolve-alert
+            alert_type: custom
 
         - alert: Nye feilede prosesstask registert
           expr: |
@@ -57,6 +50,8 @@ spec:
           labels:
             namespace: teamforeldrepenger
             severity: warning
+            special_type_to_use_in_alertmanager_config: foreldrepenger-none-resolve-alert
+            alert_type: custom
 
         - alert: Flere errors/warnings observert i loggen de siste 5 minuttene
           expr: sum (floor(increase(logback_events_total{namespace="teamforeldrepenger", level=~"error|warn"}[5m]))) by (app) > 2
@@ -65,3 +60,15 @@ spec:
           labels:
             namespace: teamforeldrepenger
             severity: warning
+            special_type_to_use_in_alertmanager_config: foreldrepenger-none-resolve-alert
+            alert_type: custom
+
+
+        - alert: Applikasjonen er nede
+          expr: kube_deployment_status_replicas_available{namespace="teamforeldrepenger"} == 0
+          for: 30s
+          annotations:
+            summary: '*{{ $labels.deployment }}* er nede og ikke tilgjengelig!'
+          labels:
+            namespace: teamforeldrepenger
+            severity: critical
