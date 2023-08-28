@@ -1,6 +1,14 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: foreldrepenger-alertconfig
+  namespace: teamforeldrepenger
+  labels:
+    team: teamforeldrepenger
+    alertmanagerConfig: foreldrepenger-alertconfig
 spec:
   receivers:
-    - name: foreldrepenger-slack-receiver
+    - name: foreldrepenger-alertconfig-receiver
       slackConfigs:
         - apiURL:
             key: apiUrl
@@ -45,4 +53,4 @@ spec:
       - name: "special_type_to_use_in_alertmanager_config"
         matchType: "="
         value: "foreldrepenger-none-resolve-alert"
-    receiver: foreldrepenger-slack-receiver
+    receiver: foreldrepenger-alertconfig-receiver
