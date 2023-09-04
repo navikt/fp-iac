@@ -53,8 +53,8 @@ spec:
             special_type_to_use_in_alertmanager_config: foreldrepenger-none-resolve-alert
             alert_type: custom
 
-        - alert: Flere errors/warnings observert i loggen de siste 5 minuttene
-          expr: sum (floor(increase(logback_events_total{namespace="teamforeldrepenger", level=~"error|warn"}[5m]))) by (app) > 2
+        - alert: Mange errors/warnings observert i loggen de siste 5 minuttene
+          expr: sum (floor(increase(logback_events_total{namespace="teamforeldrepenger", level=~"error|warn"}[5m]))) by (app) > 4
           annotations:
             summary: '{{ $value }} warnings/errors har blitt observert i loggen til *{{ $labels.app }}*'
           labels:
