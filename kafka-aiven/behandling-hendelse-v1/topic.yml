@@ -14,7 +14,7 @@ spec:
   acl:
     - team: teamforeldrepenger
       application: fpsak
-      access: write
+      access: readwrite
     - team: teamforeldrepenger
       application: fptilbake
       access: write
