@@ -219,38 +219,6 @@
       ]
     },
     {
-      "topicName": "privat-foreldrepenger-brukerdialog-inntektsmelding-q1",
-      "numPartitions": 1,
-      "configEntries": {
-      },
-      "members": [
-        {
-          "member": "S139742",
-          "role": "MANAGER"
-        },
-        {
-          "member": "L151567",
-          "role": "MANAGER"
-        },
-        {
-          "member": "E151394",
-          "role": "MANAGER"
-        },
-        {
-          "member": "srvfpinfo-historikk",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvengangsstonad",
-          "role": "PRODUCER"
-        },
-        {
-          "member": "srvfpinfo-historikk",
-          "role": "CONSUMER"
-        }
-      ]
-    },
-    {
       "topicName": "privat-foreldrepenger-tilkjentytelse-v1-q1",
       "numPartitions": 1,
       "configEntries": {
