@@ -5,6 +5,8 @@ metadata:
   namespace: teamforeldrepenger
   labels:
     team: teamforeldrepenger
+  annotations:
+    kafka.nais.io/removeDataWhenResourceIsDeleted: "true"
 spec:
   pool: {{pool}}
   config:
