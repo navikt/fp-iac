@@ -1,0 +1,22 @@
+apiVersion: kafka.nais.io/v1
+kind: Topic
+metadata:
+  name: k9-tilbakekreving-dvh-etterpopulering-v1
+  namespace: k9saksbehandling
+  labels:
+    team: k9saksbehandling
+spec:
+  pool: {{pool}}
+  config:
+  {{#each config as |value key|}}
+     {{key}}: {{value}}
+  {{/each}}
+  acl:
+    - team: k9saksbehandling
+      application: k9-tilbake
+      access: write
+  {{#each acl}}
+    - team: {{team}}
+      application: {{app}}
+      access: {{access}}
+  {{/each}}
