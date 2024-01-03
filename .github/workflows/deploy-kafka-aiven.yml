@@ -36,6 +36,9 @@ jobs:
           fi
   deploy:
     needs: setup-matrix
+    permissions:
+      contents: read
+      id-token: write
     runs-on: ubuntu-latest
     if: needs.setup-matrix.outputs.emptyMatrix == 'false'
     strategy:
