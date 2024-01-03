@@ -45,17 +45,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: deploy to dev
-        uses: nais/deploy/actions/deploy@v1
+        uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: kafka-aiven/${{ matrix.topic }}/topic.yml
           VARS: kafka-aiven/${{ matrix.topic }}/dev-vars.yml
           PRINT_PAYLOAD: true
       - name: deploy to prod
-        uses: nais/deploy/actions/deploy@v1
+        uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
           RESOURCE: kafka-aiven/${{ matrix.topic }}/topic.yml
           VARS: kafka-aiven/${{ matrix.topic }}/prod-vars.yml
