@@ -16,5 +16,5 @@ spec:
       application: fpsak
       access: write
     - team: dv-familie
-      app: dvh-familie-konsument
+      application: dvh-familie-konsument
       access: read
