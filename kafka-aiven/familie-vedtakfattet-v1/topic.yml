@@ -33,6 +33,9 @@ spec:
     - team: k9saksbehandling
       application: k9-statistikk
       access: read
+    - team: k9saksbehandling
+      application: k9-abakus
+      access: read
     - team: teamfamilie
       application: familie-ef-vedtakhendelse
       access: read
