@@ -63,7 +63,6 @@ spec:
             special_type_to_use_in_alertmanager_config: foreldrepenger-none-resolve-alert
             alert_type: custom
 
-
         - alert: Applikasjonen er nede
           expr: kube_deployment_status_replicas_available{namespace="teamforeldrepenger"} == 0
           for: 30s
@@ -72,3 +71,89 @@ spec:
           labels:
             namespace: teamforeldrepenger
             severity: critical
+
+        # Alarmer behandlingårsak
+        - alert: Behandlingårsak opprettet fra nye hendelser i folkeregisteret (PDL)
+          expr: |
+            delta(max(fp_behandlinger_antall{behandling_aarsak_type="FOLKEREGISTER"})[100m:]) == 0 
+            and on() (day_of_week() > 0 and day_of_week() < 6)
+            and on() (european_hour >= 9 and european_hour < 23)
+          for: 20m
+          annotations:
+            summary: 'Ingen nye behandlinger med behandlingårsak fra folkeregisteret (PDL) de siste 2 timene'
+          labels:
+            namespace: teamforeldrepenger
+            severity: warning
+
+        # Alarmer for mottatte dokumenter
+        - alert: Førstegangssøknad foreldrepenger
+          expr: |
+            delta(max(fp_dokument_antall{dokument_type="FORELDREPENGER"})[40m:]) == 0 
+            and on() (day_of_week() > 0 and day_of_week() < 6)
+            and on() (european_hour >= 9 and european_hour < 21)
+          for: 20m
+          annotations:
+            summary: 'Ingen nye førstegangssøknader på foreldrepenger den siste timen!'
+          labels:
+            namespace: teamforeldrepenger
+            severity: warning
+
+        - alert: Revurdering foreldrepenger
+          expr: |
+            delta(max(fp_dokument_antall{dokument_type="ENDRINGSSØKNAD"})[40m:]) == 0 
+            and on() (day_of_week() > 0 and day_of_week() < 6)
+            and on() (european_hour >= 9 and european_hour < 21)
+          for: 20m
+          annotations:
+            summary: 'Ingen nye revurderinger på foreldrepenger den siste timen!'
+          labels:
+            namespace: teamforeldrepenger
+            severity: warning
+
+        - alert: Førstegangssøknad svangerskapspenger
+          expr: |
+            delta(max(fp_dokument_antall{dokument_type="SVANGERSKAPSPENGER"})[160m:]) == 0 
+            and on() (day_of_week() > 0 and day_of_week() < 6)
+            and on() (european_hour >= 11 and european_hour < 21)
+          for: 20m
+          annotations:
+            summary: 'Ingen nye førstegangssøknader på svangerskapspenger de siste 3 timene!'
+          labels:
+            namespace: teamforeldrepenger
+            severity: warning
+
+        - alert: Førstegangssøknad engangsstønad
+          expr: |
+            delta(max(fp_dokument_antall{dokument_type="ENGANGSSTØNAD"})[160m:]) == 0 
+            and on() (day_of_week() > 0 and day_of_week() < 6)
+            and on() (european_hour >= 11 and european_hour < 21)
+          for: 20m
+          annotations:
+            summary: 'Ingen nye førstegangssøknader på engangsstønad de siste 3 timene!'
+          labels:
+            namespace: teamforeldrepenger
+            severity: warning
+
+        - alert: Ettersendelse av dokumentasjon
+          expr: |
+            delta(max(fp_dokument_antall{dokument_type=~"SYKDOM|AKTIVITETSKRAV"})[160m:]) == 0 
+            and on() (day_of_week() > 0 and day_of_week() < 6)
+            and on() (european_hour >= 11 and european_hour < 21)
+          for: 20m
+          annotations:
+            summary: 'Ingen nye ettersendelser av dokumentasjon de siste 3 timene!'
+          labels:
+            namespace: teamforeldrepenger
+            severity: warning
+
+        - alert: Inntektsmeldinger mottatt
+          expr: |
+            delta(max(fp_dokument_antall{dokument_type="INNTEKTSMELDING"})[40m:]) == 0 
+            and on() (day_of_week() > 0 and day_of_week() < 6)
+            and on() (european_hour >= 9 and european_hour < 17)
+          for: 20m
+          annotations:
+            summary: 'Ingen inntektsmeldinger mottatt den siste timen!'
+          labels:
+            namespace: teamforeldrepenger
+            severity: warning
