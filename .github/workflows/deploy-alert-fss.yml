@@ -5,8 +5,8 @@ on:
     branches:
      - main
     paths:
-      - .github/workflows/deploy-alert.yml
-      - alert/**
+      - .github/workflows/deploy-alert-fss.yml
+      - alert/fss/**
 jobs:
   deploy:
     permissions:
@@ -16,27 +16,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Deploy alertconfig to prod-gcp
-        uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: prod-gcp
-          RESOURCE: alert/foreldrepenger-alertconfig.yaml
-          PRINT_PAYLOAD: true
-      - name: Deploy to prod-gcp
-        uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: prod-gcp
-          RESOURCE: alert/foreldrepenger-alerts.yaml
-          PRINT_PAYLOAD: true
+
       - name: Deploy alertconfig to prod-fss
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-fss
           RESOURCE: alert/foreldrepenger-alertconfig.yaml
           PRINT_PAYLOAD: true
+
       - name: Deploy to prod-fss
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-fss
-          RESOURCE: alert/foreldrepenger-alerts.yaml
+          RESOURCE: alert/fss/foreldrepenger-alerts.yaml
           PRINT_PAYLOAD: true

@@ -1,0 +1,45 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: foreldrepenger-alerts
+  namespace: teamforeldrepenger
+  labels:
+    team: teamforeldrepenger
+spec:
+  groups:
+    - name: foreldrepenger-alerts
+      rules:
+        - record: is_european_summer_time
+          expr: |
+            (vector(1) and (month() > 3 and month() < 10))
+            or
+            (vector(1) and (month() == 3 and (day_of_month() - day_of_week()) >= 25) and absent((day_of_month() >= 25) and (day_of_week() == 0)))
+            or
+            (vector(1) and (month() == 10 and (day_of_month() - day_of_week()) < 25) and absent((day_of_month() >= 25) and (day_of_week() == 0)))
+            or
+            (vector(1) and ((month() == 10 and hour() < 1) or (month() == 3 and hour() > 0)) and ((day_of_month() >= 25) and (day_of_week() == 0)))
+            or
+            vector(0)
+        - record: european_time
+          expr: time() + 3600 * (is_european_summer_time + 1)
+        - record: european_hour
+          expr: hour(european_time)
+
+        - alert: Mange errors/warnings observert i loggen de siste 5 minuttene
+          expr: sum (floor(increase(logback_events_total{namespace="teamforeldrepenger", level=~"error|warn"}[5m]))) by (app) > 4
+          annotations:
+            summary: '{{ $value }} warnings/errors har blitt observert i loggen til *{{ $labels.app }}*'
+          labels:
+            namespace: teamforeldrepenger
+            severity: warning
+            special_type_to_use_in_alertmanager_config: foreldrepenger-none-resolve-alert
+            alert_type: custom
+
+        - alert: Applikasjonen er nede
+          expr: kube_deployment_status_replicas_available{namespace="teamforeldrepenger"} == 0
+          for: 30s
+          annotations:
+            summary: '*{{ $labels.deployment }}* er nede og ikke tilgjengelig!'
+          labels:
+            namespace: teamforeldrepenger
+            severity: critical

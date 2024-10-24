@@ -1,0 +1,32 @@
+name: Deploy alerts topics
+
+on:
+  push:
+    branches:
+     - main
+    paths:
+      - .github/workflows/deploy-alert-gcp.yml
+      - alert/gcp/**
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy alertconfig to prod-gcp
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: alert/foreldrepenger-alertconfig.yaml
+          PRINT_PAYLOAD: true
+
+      - name: Deploy to prod-gcp
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: alert/gcp/foreldrepenger-alerts.yaml
+          PRINT_PAYLOAD: true
