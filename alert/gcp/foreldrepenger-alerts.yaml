@@ -24,34 +24,6 @@ spec:
           expr: time() + 3600 * (is_european_summer_time + 1)
         - record: european_hour
           expr: hour(european_time)
-        - alert: Feilede prosesstask i applikasjon
-          expr: |
-            round(avg (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app)) > 0
-            and on() european_hour == 8
-          for: 5m
-          annotations:
-            summary: 'Applikasjonen *{{ $labels.app }}* har {{ $value }} feilede prosesstasks!'
-          labels:
-            namespace: teamforeldrepenger
-            severity: warning
-            special_type_to_use_in_alertmanager_config: foreldrepenger-none-resolve-alert
-            alert_type: custom
-
-        - alert: Nye feilede prosesstask registert
-          expr: |
-            round((sum (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"}) by (app) -
-            sum (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"} offset 10m) by (app)) /
-            count (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"})  by (app)) > 0.5
-            and
-            avg (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"}) by (app) > 0
-          for: 5m
-          annotations:
-            summary: 'Applikasjonen *{{ $labels.app }}* har {{ $value }} nye feilede prosesstasks de siste 5 minuttene!'
-          labels:
-            namespace: teamforeldrepenger
-            severity: warning
-            special_type_to_use_in_alertmanager_config: foreldrepenger-none-resolve-alert
-            alert_type: custom
 
         - alert: Mange errors/warnings observert i loggen de siste 5 minuttene
           expr: sum (floor(increase(logback_events_total{namespace="teamforeldrepenger", level=~"error|warn"}[5m]))) by (app) > 4
@@ -62,7 +34,6 @@ spec:
             severity: warning
             special_type_to_use_in_alertmanager_config: foreldrepenger-none-resolve-alert
             alert_type: custom
-
 
         - alert: Applikasjonen er nede
           expr: kube_deployment_status_replicas_available{namespace="teamforeldrepenger"} == 0
