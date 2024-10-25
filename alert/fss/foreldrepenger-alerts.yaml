@@ -26,7 +26,7 @@ spec:
           expr: hour(european_time)
         - alert: Feilede prosesstask i applikasjon
           expr: |
-            round(avg (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app)) > 0
+            round(avg(prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app)) > 0
             and on() european_hour == 8
           for: 5m
           annotations:
@@ -39,11 +39,7 @@ spec:
 
         - alert: Nye feilede prosesstask registert
           expr: |
-            round((sum (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"}) by (app) -
-            sum (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"} offset 10m) by (app)) /
-            count (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"})  by (app)) > 0.5
-            and
-            avg (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"}) by (app) > 0
+            round(delta(avg(prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app)[20m:])) > 0
           for: 5m
           annotations:
             summary: 'Applikasjonen *{{ $labels.app }}* har {{ $value }} nye feilede prosesstasks de siste 5 minuttene!'
@@ -136,12 +132,12 @@ spec:
 
         - alert: Ettersendelse av dokumentasjon
           expr: |
-            delta(max(fp_dokument_antall{dokument_type=~"SYKDOM|AKTIVITETSKRAV"})[160m:]) == 0 
+            delta(max(fp_dokument_antall{dokument_type=~"SYKDOM|AKTIVITETSKRAV|FAMHENDELSE|ANNET"})[100m:]) == 0 
             and on() (day_of_week() > 0 and day_of_week() < 6)
-            and on() (european_hour >= 11 and european_hour < 21)
+            and on() (european_hour >= 10 and european_hour < 21)
           for: 20m
           annotations:
-            summary: 'Ingen nye ettersendelser av dokumentasjon de siste 3 timene!'
+            summary: 'Ingen nye ettersendelser av dokumentasjon de siste 2 timene!'
           labels:
             namespace: teamforeldrepenger
             severity: warning
