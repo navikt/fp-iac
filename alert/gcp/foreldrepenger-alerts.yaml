@@ -40,11 +40,7 @@ spec:
 
         - alert: Nye feilede prosesstask registert
           expr: |
-            round((sum (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"}) by (app) -
-            sum (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"} offset 10m) by (app)) /
-            count (prosesstask_antall{namespace="teamforeldrepenger", status="feilet"})  by (app)) > 0.5
-            and
-            avg (prosesstask_antall{namespace="teamforeldrepenger",status="feilet"}) by (app) > 0
+            round(delta(avg(prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app)[20m:])) > 0
           for: 5m
           annotations:
             summary: 'Applikasjonen *{{ $labels.app }}* har {{ $value }} nye feilede prosesstasks de siste 5 minuttene!'
