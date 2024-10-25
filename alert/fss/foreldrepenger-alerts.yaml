@@ -136,7 +136,7 @@ spec:
 
         - alert: Ettersendelse av dokumentasjon
           expr: |
-            delta(max(fp_dokument_antall{dokument_type=~"SYKDOM|AKTIVITETSKRAV"})[160m:]) == 0 
+            delta(max(fp_dokument_antall{dokument_type=~"SYKDOM|AKTIVITETSKRAV|FAMHENDELSE|ANNET"})[160m:]) == 0 
             and on() (day_of_week() > 0 and day_of_week() < 6)
             and on() (european_hour >= 11 and european_hour < 21)
           for: 20m
