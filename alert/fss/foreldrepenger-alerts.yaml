@@ -27,6 +27,7 @@ spec:
         - alert: Feilede prosesstask i applikasjon
           expr: |
             round(avg(prosesstask_antall{namespace="teamforeldrepenger", status="feilet"}) by (app)) > 0
+            and on() (day_of_week() > 0 and day_of_week() < 6)
             and on() european_hour == 8
           for: 5m
           annotations:
