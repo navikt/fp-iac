@@ -1,0 +1,33 @@
+name: Deploy redis
+
+on:
+  push:
+    branches:
+     - main
+    paths:
+      - .github/workflows/deploy-redis.yml
+      - redis/**
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy fpcache to dev-fss
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: dev-fss
+          RESOURCE: redis/fpcache-redis.yaml
+          PRINT_PAYLOAD: true
+
+      - name: Deploy to fpcache to prod-fss
+        if: success()
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-fss
+          RESOURCE: redis/fpcache-redis.yaml
+          PRINT_PAYLOAD: true
