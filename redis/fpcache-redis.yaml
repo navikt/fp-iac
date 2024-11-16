@@ -1,0 +1,78 @@
+# Husk å opprette fpcache secreten i kubernetes.
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: fpcache
+  namespace: teamforeldrepenger
+  labels:
+    team: teamforeldrepenger
+  annotations:
+    "nais.io/run-as-group": "0"
+    "nais.io/read-only-file-system": "false"
+    "nais.io/run-as-user": "999"
+spec:
+  image: bitnami/redis:7.4
+  port: 6379
+  replicas:
+    min: 1
+    max: 1
+  resources:
+    limits:
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  service:
+    port: 6379
+    protocol: redis
+  envFrom:
+    - secret: fpcache
+  accessPolicy:
+    inbound:
+      rules:
+        - application: fptilgang
+        - application: fpabakus
+        - application: fpabonnent
+        - application: fpfordel
+        - application: fpformidling
+        - application: fplos
+        - application: fprisk
+        - application: fpsak
+        - application: fptilbake
+        - application: fpcache-redisexporter
+---
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: fpcache-redisexporter
+  namespace: teamforeldrepenger
+  labels:
+    "team": teamforeldrepenger
+spec:
+  image: oliver006/redis_exporter:v1.66.0-alpine
+  port: 9121
+  prometheus:
+    enabled: true
+  replicas:
+    min: 1
+    max: 1
+  resources:
+    limits:
+      cpu: 100m
+      memory: 100Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  liveness:
+    path: /health
+  accessPolicy:
+    outbound:
+      rules:
+        - application: fpcache
+  envFrom:
+    - secret: fpcache
+  env:
+    - name: REDIS_ADDR
+      value: fpcache.teamforeldrepenger.svc.nais.local:6379
+    - name: REDIS_EXPORTER_LOG_FORMAT
+      value: json
