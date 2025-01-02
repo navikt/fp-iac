@@ -1,8 +1,5 @@
 {
   "name": "foreldrepenger-inngang",
-  "from": "https://familie.nav.no",
-  "to": {
-    "host": "nav.no",
-    "path": "/barn"
-  }
+  "from": "familie.nav.no",
+  "to": "https://www.nav.no/barn"
 }

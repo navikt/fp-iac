@@ -6,14 +6,14 @@ metadata:
   labels:
     team: teamforeldrepenger
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: {{from}}
+    nginx.ingress.kubernetes.io/rewrite-target: {{to}}
 spec:
   ingressClassName: nais-ingress-external
   rules:
-    - host: {{to.host}}
+    - host: {{from}}
       http:
         paths:
-          - path: {{to.path}}
+          - path: /
             pathType: Prefix
             backend:
               service:
