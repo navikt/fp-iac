@@ -21,5 +21,6 @@ jobs:
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-gcp
-          RESOURCE: redirect/foreldrepenger-inngang.yml
+          RESOURCE: redirect/redirect.yml
+          VARS: redirect/foreldrepenger-inngang.json
           PRINT_PAYLOAD: true
