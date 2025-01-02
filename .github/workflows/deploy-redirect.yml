@@ -1,0 +1,25 @@
+name: Deploy redirects
+
+on:
+  push:
+    branches:
+     - main
+    paths:
+      - .github/workflows/deploy-redirect.yml
+      - redirect/**
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy redirect foreldrepenger-inngang prod
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: redirect/foreldrepenger-inngang.yml
+          PRINT_PAYLOAD: true

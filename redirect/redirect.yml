@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{name}}-redirect
+  namespace: teamforeldrepenger
+  labels:
+    team: teamforeldrepenger
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: {{from}}
+spec:
+  ingressClassName: nais-ingress-external
+  rules:
+    - host: {{to.host}}
+      http:
+        paths:
+          - path: {{to.path}}
+            pathType: Prefix
+            backend:
+              service:
+                name: dummy-service
+                port:
+                  number: 80
