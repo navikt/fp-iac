@@ -11,7 +11,7 @@ metadata:
     "nais.io/read-only-file-system": "false"
     "nais.io/run-as-user": "999"
 spec:
-  image: bitnami/redis:7.4
+  image: bitnami/valkey:8.1
   port: 6379
   replicas:
     min: 1
@@ -49,7 +49,7 @@ metadata:
   labels:
     "team": teamforeldrepenger
 spec:
-  image: oliver006/redis_exporter:v1.66.0-alpine
+  image: oliver006/redis_exporter:v1.71.0-alpine
   port: 9121
   prometheus:
     enabled: true

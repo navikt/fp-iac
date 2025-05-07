@@ -5,8 +5,8 @@ on:
     branches:
      - main
     paths:
-      - .github/workflows/deploy-redis.yml
-      - redis/**
+      - .github/workflows/deploy-valkey.yml
+      - ../../valkey/**
 jobs:
   deploy:
     permissions:
@@ -21,13 +21,13 @@ jobs:
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-fss
-          RESOURCE: redis/fpcache-redis.yaml
+          RESOURCE: valkey/fpcache.yaml
           PRINT_PAYLOAD: true
 
-      - name: Deploy to fpcache to prod-fss
+      - name: Deploy fpcache to prod-fss
         if: success()
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-fss
-          RESOURCE: redis/fpcache-redis.yaml
+          RESOURCE: valkey/fpcache.yaml
           PRINT_PAYLOAD: true
