@@ -11,7 +11,7 @@ metadata:
     "nais.io/read-only-file-system": "false"
     "nais.io/run-as-user": "999"
 spec:
-  image: bitnami/redis:7.4
+  image: bitnami/redis:8.0
   port: 6379
   replicas:
     min: 1
@@ -31,14 +31,6 @@ spec:
     inbound:
       rules:
         - application: fptilgang
-        - application: fpabakus
-        - application: fpabonnent
-        - application: fpfordel
-        - application: fpformidling
-        - application: fplos
-        - application: fprisk
-        - application: fpsak
-        - application: fptilbake
         - application: fpcache-redisexporter
 ---
 apiVersion: nais.io/v1alpha1
@@ -49,7 +41,7 @@ metadata:
   labels:
     "team": teamforeldrepenger
 spec:
-  image: oliver006/redis_exporter:v1.66.0-alpine
+  image: oliver006/redis_exporter:v1.71.0-alpine
   port: 9121
   prometheus:
     enabled: true
