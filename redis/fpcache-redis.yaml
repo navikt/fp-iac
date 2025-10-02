@@ -11,7 +11,7 @@ metadata:
     "nais.io/read-only-file-system": "false"
     "nais.io/run-as-user": "999"
 spec:
-  image: bitnami/redis:8.0
+  image: bitnamilegacy/redis:8.0
   port: 6379
   replicas:
     min: 1
