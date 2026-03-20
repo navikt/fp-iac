@@ -1,0 +1,20 @@
+apiVersion: kafka.nais.io/v1
+kind: Topic
+metadata:
+  name: vedtak-ekstern
+  namespace: teamforeldrepenger
+  labels:
+    team: teamforeldrepenger
+spec:
+  pool: {{pool}}
+  config:
+  {{#each config as |value key|}}
+     {{key}}: {{value}}
+  {{/each}}
+  acl:
+    - team: teamforeldrepenger
+      application: fpabakus
+      access: write
+    - team: aap
+      application: behandlingsflyt
+      access: read
