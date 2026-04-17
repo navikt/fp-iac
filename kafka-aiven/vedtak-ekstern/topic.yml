@@ -18,3 +18,6 @@ spec:
     - team: aap
       application: behandlingsflyt
       access: read
+    - team: teamdagpenger
+      application: dp-andre-ytelser
+      access: read
