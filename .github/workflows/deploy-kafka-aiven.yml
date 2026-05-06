@@ -3,7 +3,7 @@ name: Deploy kafka topics
 on:
   push:
     branches:
-     - main
+      - main
     paths:
       - kafka-aiven/**
       - .github/workflows/deploy-kafka-aiven.yml
@@ -16,7 +16,7 @@ jobs:
       emptyMatrix: ${{ steps.set-matrix.outputs.emptyMatrix }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6.0.2
         with:
           fetch-depth: 0
 
@@ -46,16 +46,16 @@ jobs:
       matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6.0.2
       - name: deploy to dev
-        uses: nais/deploy/actions/deploy@v2
+        uses: nais/deploy/actions/deploy@823ec9b7e305ce7cf911d0f9a25f7da9d7486cf2 # ratchet:nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: kafka-aiven/${{ matrix.topic }}/topic.yml
           VARS: kafka-aiven/${{ matrix.topic }}/dev-vars.yml
           PRINT_PAYLOAD: true
       - name: deploy to prod
-        uses: nais/deploy/actions/deploy@v2
+        uses: nais/deploy/actions/deploy@823ec9b7e305ce7cf911d0f9a25f7da9d7486cf2 # ratchet:nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-gcp
           RESOURCE: kafka-aiven/${{ matrix.topic }}/topic.yml
