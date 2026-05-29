@@ -5,9 +5,8 @@ metadata:
   namespace: teamforeldrepenger
   labels:
     team: teamforeldrepenger
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: "https://www.nav.no/barn"
-spec:
+    nginx.ingress.kubernetes.io/permanent-redirect: https://www.nav.no/barn
+    nginx.ingress.kubernetes.io/permanent-redirect-code: "301"
   ingressClassName: nais-ingress-external
   rules:
     - host: familie.nav.no
