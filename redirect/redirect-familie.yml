@@ -5,8 +5,9 @@ metadata:
   namespace: teamforeldrepenger
   labels:
     team: teamforeldrepenger
-    nginx.ingress.kubernetes.io/permanent-redirect: https://www.nav.no/barn
-    nginx.ingress.kubernetes.io/permanent-redirect-code: "301"
+  annotations:
+    nginx.ingress.kubernetes.io/permanent-redirect: "https://www.nav.no/barn"
+spec:
   ingressClassName: nais-ingress-external
   rules:
     - host: familie.nav.no
@@ -28,7 +29,7 @@ metadata:
   labels:
     team: teamforeldrepenger
   annotations:
-    haproxy.org/request-redirect: "https://www.nav.no/barn"
+    haproxy.org/request-redirect: "code 301 location https://www.nav.no/barn"
 spec:
   ingressClassName: external-haproxy
   rules:
