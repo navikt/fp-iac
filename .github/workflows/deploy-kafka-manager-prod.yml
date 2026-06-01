@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6.0.2
       - name: Deploy kafka-manager til prod
-        uses: nais/deploy/actions/deploy@a7f8690f9b367fcbf5348a0a1e21d44f1aae50eb # ratchet:nais/deploy/actions/deploy@v2
+        uses: nais/deploy/actions/deploy@8ed36847e27a937bb9cd9b3751b1a5fff8ef31dc # ratchet:nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-gcp
           RESOURCE: fp-kafka-manager-prod.yml
