@@ -29,7 +29,8 @@ metadata:
   labels:
     team: teamforeldrepenger
   annotations:
-    haproxy.org/request-redirect: "code 301 location https://www.nav.no/barn"
+    haproxy.org/request-redirect: "https://www.nav.no/barn"
+    haproxy.org/request-redirect-code: "301"
 spec:
   ingressClassName: external-haproxy
   rules:
